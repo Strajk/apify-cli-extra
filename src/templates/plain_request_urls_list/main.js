@@ -15,7 +15,7 @@ Apify.main(async () => {
 
     const handleRequestFunction = async ({ request }) => {
         await Apify.pushData({
-            request: request,
+            request,
             finishedAt: new Date(),
             html: await rp(request.url),
         });

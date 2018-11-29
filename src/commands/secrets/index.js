@@ -2,7 +2,7 @@ const { Command } = require('@oclif/command');
 const { showHelpForCommand } = require('../../lib/utils');
 
 class SecretsIndexCommand extends Command {
-    async run() {
+    static async run() {
         showHelpForCommand('secrets');
     }
 }

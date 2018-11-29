@@ -87,7 +87,7 @@ const transformEnvToEnvVars = (env, secrets) => {
                 envVars.push({
                     name: key,
                     value: secrets[secretKey],
-                    isSecret: true
+                    isSecret: true,
                 });
             } else {
                 warning(`Secrets with key ${secretKey} in local secrets. Set it up with "apify secrets:add ${secretKey} secretValue"`);

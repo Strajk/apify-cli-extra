@@ -138,10 +138,11 @@ PushCommand.description = 'Uploads the actor to the Apify platform and builds it
 
 PushCommand.flags = {
     'version-number': flagsHelper.string({
-        description: 'DEPRECATED: Use flag version instead. Actor version number to which the files should be pushed. By default, it is taken from the "apify.json" file.',
+        description: 'DEPRECATED: Use flag version instead. Actor version number to which the files should be pushed. '
+            + 'By default, it is taken from the "apify.json" file.',
         required: false,
     }),
-    'version': flagsHelper.string({
+    version: flagsHelper.string({
         char: 'v',
         description: 'Actor version number to which the files should be pushed. By default, it is taken from the "apify.json" file.',
         required: false,

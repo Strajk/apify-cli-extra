@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "mocha --timeout 120000 --recursive",
-        "lint": "eslint cli test",
+        "lint": "eslint src test",
         "commands_md": "./help_to_md.sh",
         "prod_shrinkwrap": "rm -rf node_modules && npm install --production && npm shrinkwrap"
     },
