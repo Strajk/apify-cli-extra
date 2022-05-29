@@ -204,8 +204,8 @@ const createSourceFiles = async (paths) => {
  * Get actor local files, omit files defined in .gitignore and .git folder
  * All dot files(.file) and folders(.folder/) are included.
  */
-const getActorLocalFilePaths = () => globby(['*', '**/**'], {
-    ignore: ['.git/**'],
+const getActorLocalFilePaths = ({ extraIgnore = [] }) => globby(['*', '**/**'], {
+    ignore: ['.git/**', ...extraIgnore],
     gitignore: true,
     dot: true,
 });

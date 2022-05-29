@@ -64,7 +64,7 @@ class PushCommand extends ApifyCommand {
 
         outputs.info(`Deploying actor '${localConfig.name}' to Apify.`);
 
-        const filePathsToPush = await getActorLocalFilePaths();
+        const filePathsToPush = await getActorLocalFilePaths({ extraIgnore: ['apify_storage/**'] });
         const filesSize = await sumFilesSizeInBytes(filePathsToPush);
         const actorClient = apifyClient.actor(actorId);
 
@@ -76,7 +76,7 @@ class PushCommand extends ApifyCommand {
             sourceType = ACT_SOURCE_TYPES.SOURCE_FILES;
         } else {
             // Create zip
-            outputs.run('Zipping actor files');
+            outputs.run(`Zipping actor files, because total file size of ${filesSize} bytes exceeded ${MAX_MULTIFILE_BYTES} bytes multi file limit.`);
             await createActZip(TEMP_ZIP_FILE_NAME, filePathsToPush);
 
             // Upload it to Apify.keyValueStores
