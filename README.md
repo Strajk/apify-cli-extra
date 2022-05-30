@@ -31,3 +31,4 @@ I personally use it by `alias a-cli=~/Projects/a/apify-cli/src/bin/run` (`a` is 
 
 - `extraIgnore` option for `getActorLocalFilePaths`, useful for ignoring `apify_storage` dir when pushing
 - on `push`, add more explanatory console message when zipping instead of plain uploading (because total file size of ... exceeded ...)
+- on `push` (only initial when actor is being created) and on `put`, use `defaultRunOptions` from apify.json

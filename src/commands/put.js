@@ -36,6 +36,7 @@ class PutCommand extends ApifyCommand {
         // eslint-disable-next-line global-require,import/no-dynamic-require
         const pkg = require(path.join(process.cwd(), 'package.json'));
         const metadata = removeEmptyProps(pkg.apify);
+        if (localConfig.defaultRunOptions) metadata.defaultRunOptions = localConfig.defaultRunOptions;
 
         if (flags.uploadPicture) {
             const parentDir = path.basename(process.cwd(), '.dist'); // e.g. tradeinn

@@ -47,7 +47,7 @@ class PushCommand extends ApifyCommand {
                 if (!actorTemplate) [actorTemplate] = templates;
                 const newActor = {
                     name: localConfig.name,
-                    defaultRunOptions: actorTemplate.defaultRunOptions,
+                    defaultRunOptions: localConfig.defaultRunOptions ?? actorTemplate.defaultRunOptions,
                     versions: [{
                         versionNumber: version,
                         buildTag,
