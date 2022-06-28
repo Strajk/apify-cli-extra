@@ -49,7 +49,7 @@ class RunCommand extends ApifyCommand {
             info('Default local key-value store was purged.');
         }
 
-        // Check if apify storage were purge, if not print error
+        // Check if apify storage was purged, if not print error
         if (!flags.purge) {
             const isStorageEmpty = await checkIfStorageIsEmpty();
             if (!isStorageEmpty) {
