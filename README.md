@@ -23,6 +23,7 @@ I personally use it by `alias a-cli=~/Projects/a/apify-cli/src/bin/run` (`a` is 
 - 🆕 `gi` - generate example input from INPUT_SCHEMA
     - I kinda haven't made my mind about this one, it might not be useful after all ¯\_(ツ)_/¯
 - 🆕 `merge-dataset` - glob all dataset files in local apify_storage and outputs csv and sqlite.
+- 🆕 `purge` - purge all local data from apify_storage, flags `purge-queue`,  `purge-dataset`, `purge-key-value-store`
 - 🆕 `pull` - opposite of existing `push`. Gets the actor's source to local cwd. Kinda works with various source types (source files/single file/tar/even git)
 - 🆕 `pull-storage` - pulls storage from remote (Apify Console) to local (cwd), e.g. `apify-cli pull-storage key_value_store Rdtupxx5rzuLrpUHr`
 - 🆕 `put` - existing `push` pushes the source code to Apify Console, `put` is for updating metadata (settings)
