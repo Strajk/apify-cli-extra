@@ -10,7 +10,7 @@ class AddCommand extends ApifyCommand {
     }
 }
 
-AddCommand.description = 'Adds a new secret value.\nThe secrets are stored to a file at ~/.apify';
+AddCommand.description = 'Adds a new secret value.\nThe secrets are stored in ~/.apify/secrets.json';
 
 AddCommand.args = [
     {
