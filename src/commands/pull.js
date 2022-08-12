@@ -18,7 +18,7 @@ class PullCommand extends ApifyCommand {
         const cwd = process.cwd();
 
         const { actorId } = args;
-        const actor = await apifyClient.acts.getAct({ actId: actorId });
+        const actor = await apifyClient.actor(actorId).get();
         if (!actor) throw new Error(`Cannot find actor with ID '${actorId}' in your account.`);
         const {
             id,
