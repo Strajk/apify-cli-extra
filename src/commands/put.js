@@ -39,8 +39,17 @@ class PutCommand extends ApifyCommand {
         if (localConfig.defaultRunOptions) metadata.defaultRunOptions = localConfig.defaultRunOptions;
 
         if (flags.uploadPicture) {
+            let picturePath;
+
+            // First, try to find the picture in the current directory
             const parentDir = path.basename(process.cwd(), '.dist'); // e.g. tradeinn
-            const picturePath = path.join(process.cwd(), '..', `${parentDir}.png`);
+            picturePath = path.join(process.cwd(), '..', `${parentDir}.png`);
+
+            // Then, try to find the picture in .actor directory
+            if (!fs.existsSync(picturePath)) {
+                picturePath = path.join(process.cwd(), '.actor', `logo.png`);
+            }
+
             if (!fs.existsSync(picturePath)) throw new Error(`The picture file "${picturePath}" does not exist.`);
 
             // for proper solution, see getUserImageUploadUrl
