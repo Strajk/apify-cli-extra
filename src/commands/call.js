@@ -128,3 +128,8 @@ CallCommand.args = [
 ];
 
 module.exports = CallCommand;
+
+// Uncomment for debugging:
+// CallCommand.run([
+//     // /* actId */ 'abc123ActorId',
+// ]);
