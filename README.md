@@ -33,3 +33,13 @@ I personally use it by `alias a-cli=~/Projects/a/apify-cli/src/bin/run` (`a` is 
 - `extraIgnore` option for `getActorLocalFilePaths`, useful for ignoring `apify_storage` dir when pushing
 - on `push`, add more explanatory console message when zipping instead of plain uploading (because total file size of ... exceeded ...)
 - on `push` (only initial when actor is being created) and on `put`, use `defaultRunOptions` from apify.json
+- on `call`, allow calling actor based on cwd, even though apify_storage is missing alltogether
+
+## Development
+
+* How to debug?
+  * Add/Uncomment `FooCommand.run(...)` at the end of the specific command
+    * You can pass args as array, see `CallCommand.run([` for example
+  * Create new Run configuration in WebStorm from the specific command file
+  * Set Working directory to the absolute path of directory containing some actor
+  * Run/Debug

@@ -235,7 +235,15 @@ const createActZip = async (zipName, pathsToZip) => {
  */
 const getLocalInput = () => {
     const defaultLocalStorePath = getLocalKeyValueStorePath();
-    const files = fs.readdirSync(defaultLocalStorePath);
+    let files;
+
+    try {
+        files = fs.readdirSync(defaultLocalStorePath);
+    } catch (err) {
+        if (err.code === 'ENOENT') return; // Do not crash when file does not exist
+        throw err;
+    }
+
     const inputFileName = files.find((file) => !!file.match(INPUT_FILE_REG_EXP));
 
     // No input file
